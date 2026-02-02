@@ -1,0 +1,596 @@
+*{
+    margin:0;
+    padding:0;
+}
+header{
+    text-align: center;
+    padding:10px;
+    background-color: pink;
+    font-family: "Leckerli One", cursive;
+}
+nav {
+    display: flex;
+    justify-content: flex-end; /* Pushes all links to the right */
+    align-items: center;
+    gap: 40px;                 /* Maintains that big, clean spacing */
+    padding: 20px 40px;        /* 40px padding on the right to keep the oval safe */
+    width: 100%;
+    box-sizing: border-box;    /* Ensures padding doesn't break the layout */
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    font-size: 1.25rem; /* Bigger font */
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #222; 
+    padding: 12px 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+    z-index: 1;
+    
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%; 
+    height: 90%;
+    /* Deep Pink to Light Pink Gradient for depth */
+    background: radial-gradient(circle, #ff4d6d 0%, #ffb3c1 70%, transparent 100%);
+    border-radius: 50%;
+    
+    /* Centering and hidden state */
+    transform: translate(-50%, -50%) scale(0.4); 
+    opacity: 0;
+    filter: blur(2px); /* Softens the edges of the oval */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -1;
+}
+
+nav a:hover {
+    color: #fff; /* White text looks better against dark pink */
+    text-shadow: 0 0 12px rgba(255, 77, 109, 0.6);
+}
+
+nav a:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.4); /* Adds a "glow" effect */
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    font-size: 1.25rem; /* Bigger font */
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #222; 
+    padding: 12px 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+    z-index: 1;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%; 
+    height: 90%;
+    /* Deep Pink to Light Pink Gradient for depth */
+    background: radial-gradient(circle, #ff4d6d 0%, #ffb3c1 70%, transparent 100%);
+    border-radius: 50%;
+    
+    /* Centering and hidden state */
+    transform: translate(-50%, -50%) scale(0.4); 
+    opacity: 0;
+    filter: blur(2px); /* Softens the edges of the oval */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -1;
+}
+
+nav a:hover {
+    color: #fff; /* White text looks better against dark pink */
+    text-shadow: 0 0 12px rgba(255, 77, 109, 0.6);
+}
+
+nav a:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.4); /* Adds a "glow" effect */
+}
+
+.hero {
+    height: 100vh;
+    border-radius: 0 0 40px 40px;
+    overflow: hidden;
+    position: relative;
+    /* 1. The makeup image is the base of the container */
+    background: url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* 2. The Dark Rose color fades from solid (left) to transparent (right) */
+    background: linear-gradient(to right, 
+        rgb(65, 5, 15) 0%,      /* Solid Dark Rose starts */
+        rgb(65, 5, 15) 30%,     /* Remains solid behind the woman */
+        rgba(65, 5, 15, 0.8) 50%, /* Becomes a translucent wash */
+        transparent 100%        /* Completely reveals makeup on the right */
+    );
+    z-index: 1;
+}
+
+.hero img {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 2;
+    /* 3. The woman's image blends into the dark rose color */
+    -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+    mask-image: linear-gradient(to right, black 70%, transparent 100%);
+}
+
+
+
+/* 1. POSITIONING: This unlocks the space on top of the image */
+.hero-content {
+    position: absolute; /* Takes the text out of the normal flow */
+    top: 50%;           /* Move down 50% from the top */
+    left: 8%;           /* Push away from the left edge */
+    transform: translateY(-50%); /* Perfectly centers it vertically */
+    z-index: 10;        /* Ensures it stays above the image and gradient */
+    color: white;
+}
+
+/* 2. STYLING: Making it look premium */
+.script-glow {
+    font-family: "Leckerli One", cursive;
+    font-size: 5rem;
+    margin-bottom: -25px; /* Pulls the next line up for a tight look */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    font-weight: normal;
+}
+
+.bold-title {
+    font-family: sans-serif; /* Or Montserrat if you have it */
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.hero-tagline {
+    font-family: sans-serif;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* 3. THE BUTTON: The oval "Book Now" */
+.btn-book {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 40px;
+    border: 2px solid #ffb3c1;
+    border-radius: 50px; /* Makes it a pill/oval shape */
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    right:8%;
+    font-size: 0.8rem;
+    transition: 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: #ffb3c1;
+    color: #41050f;
+    box-shadow: 0 0 20px rgba(255, 179, 193, 0.4);
+}
+/* Modal Overlay */
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    inset: 0;
+    background: rgba(65, 5, 15, 0.85); /* Darker rose tint */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Popup Box */
+.modal-content {
+    background: white;
+    padding: 50px;
+    border-radius: 40px;
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    overflow: visible; /* Allows roses to slightly overlap the edge */
+}
+
+/* THE INNER BORDER: Sits inside the box */
+.modal-content::before {
+    content: "";
+    position: absolute;
+    inset: 15px; /* This makes it sit 15px inside the edge */
+    border: 2px solid #41050f; /* Dark Rose color */
+    border-radius: 25px;
+    pointer-events: none; /* Allows you to click things through the border */
+}
+
+/* The Roses in the corner */
+.rose-decoration {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 100px;
+    z-index: 1001;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #41050f;
+    z-index: 1002;
+}
+
+.contact-details {
+    margin: 20px 0;
+    font-family: sans-serif;
+    color: #41050f;
+    line-height: 1.8;
+}
+.services {
+  background: #fff0f4;
+  padding: 80px 8%;
+}
+
+.services h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #5a0f1f;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Changed from .service-box to .services-grid to match your HTML */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Makes it responsive */
+  gap: 20px;
+}
+
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px; /* Subtle rounding */
+  border: 1px solid #7a1f2b; /* Thinner, standard border */
+  display: flex;
+  flex-direction: column;
+  /* Removed box-shadow, transition, and min-height for a standard look */
+}
+
+/* Removed the :hover effect entirely */
+
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
+.service-card h3 {
+  font-size: 22px;
+  color: #4a0c18;
+  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+}
+
+
+:root {
+  --primary-rose: #4a0c18; /* Darkened for better contrast */
+  --mid-rose: #b23a48;
+  --text-main: #2d1a1e; /* High-readability dark brown-rose */
+  --soft-pink: #fff0f4;
+  --font-main: 'Montserrat', sans-serif;
+  --font-accent: 'Playfair Display', serif;
+}
+
+.why-us {
+  background: linear-gradient(135deg, #fff0f4 0%, #ffe4e9 100%);
+  padding: 120px 8%; /* Increased padding for better focus */
+}
+
+/* Header Section */
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  letter-spacing: 4px; /* More space between letters */
+  font-size: 16px; /* Bigger subtitle */
+  color: var(--mid-rose);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-family: var(--font-accent);
+  font-size: clamp(40px, 6vw, 64px); /* Much bolder, larger title */
+  color: var(--primary-rose);
+  line-height: 1.2;
+}
+
+/* Grid Layout */
+.artistic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px; /* Wider gap to prevent text feeling "squashed" */
+}
+
+.art-card {
+  background: rgba(255, 255, 255, 0.85); /* More solid for text clarity */
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(178, 58, 72, 0.15);
+  padding: 50px 40px; /* Spacious interior */
+  border-radius: 40px 0 40px 0;
+  transition: all 0.3s ease;
+}
+
+/* Typography Inside Cards */
+.icon-circle {
+  font-family: var(--font-accent);
+  font-size: 22px; /* Bigger number */
+  font-weight: bold;
+  color: var(--mid-rose);
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--mid-rose);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  background: white;
+}
+
+.art-card h3 {
+  font-family: var(--font-accent);
+  color: var(--primary-rose);
+  font-size: 28px; /* Significantly larger card titles */
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.art-card p {
+  color: var(--text-main);
+  line-height: 1.9; /* Generous line spacing for easy reading */
+  font-size: 18px; /* Standard "Goldilocks" size for body text */
+  font-family: var(--font-main);
+  font-weight: 400;
+}
+
+.art-card:hover {
+  background: #ffffff;
+  border-color: var(--mid-rose);
+  box-shadow: 0 10px 30px rgba(178, 58, 72, 0.1); /* Subtle depth */
+}
+.footer {
+  background: #4a0c18; /* Deep Rose-Brown for a grounded, premium finish */
+  color: #fff0f4;
+  padding: 100px 8% 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 60px;
+}
+
+.footer-brand h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.footer-brand p {
+  font-size: 18px;
+  line-height: 1.8;
+  opacity: 0.85;
+  max-width: 400px;
+}
+
+.footer-links h4, 
+.footer-contact h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #c19781; /* Rose Gold accent */
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: #fff0f4;
+  text-decoration: none;
+  font-size: 18px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+.footer-contact p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  opacity: 0.85;
+}
+
+.footer-bottom {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 240, 244, 0.1);
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 5% 30px;
+    text-align: center;
+  }
+  .footer-brand p {
+    margin: 0 auto;
+  }
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 768px) {
+    /* 1. Stack the Hero Content */
+    .hero {
+        height: auto;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px 20px;
+    }
+
+    .hero img {
+        display: none; /* Hide the side-image on mobile to let the background shine */
+    }
+
+    .hero::before {
+        background: rgba(65, 5, 15, 0.8); /* Solid overlay for text readability */
+    }
+
+    .hero-content {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        text-align: center;
+    }
+
+    /* 2. Shrink the huge fonts */
+    .script-glow {
+        font-size: 3.5rem;
+    }
+
+    .bold-title {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+    }
+
+    /* 3. Fix Navigation */
+    nav {
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    nav a {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    /* 4. Adjust Modal for small screens */
+    .modal-content {
+        padding: 30px 20px;
+        width: 85%;
+    }
+}
+/* Add this at the very top of your CSS file */
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff; /* or your theme color */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+@media (max-width: 768px) {
+    /* 1. Prevent the script font from overlapping */
+    .script-glow {
+        font-size: 3.2rem;
+        margin-bottom: 0; /* Remove negative margin on mobile */
+        display: block;
+    }
+
+    /* 2. Make the bold title readable on small screens */
+    .bold-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+        line-height: 1.2;
+    }
+
+    /* 3. Increase body text size for readability */
+    .art-card p, .service-card p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* 4. Center the buttons for thumb-clicks */
+    .btn-book {
+        display: block;
+        text-align: center;
+        margin: 20px auto;
+        width: 80%;
+    }
+}

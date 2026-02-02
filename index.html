@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Beauty Studio</title>
+    <link rel="stylesheet" href="saloon.css">
+    <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="rose.jpg">
+</head>
+<body>
+    <header id="home">
+        <h1>Glow Beauty Studio</h1>
+    </header>
+   
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="hero">
+        <img src="saloon.jpg" alt="Saloon Interior">
+        <div class="hero-content">
+            <h2 class="script-glow">Glow</h2>
+            <h1 class="bold-title">Beauty Studio</h1>
+            <p class="hero-tagline">beauty that pierces existence</p>
+            <a href="#" class="btn-book">Book Now</a>
+        </div>
+    </div>
+
+    <section class="services" id="services">
+        <h2>Our Premium Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Hair Styling</h3>
+                <p>Professional hair styling for every occasion with modern looks.</p>
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Hair">
+            </div>
+            <div class="service-card">
+                <h3>Makeup</h3>
+                <p>Luxury makeup services to enhance your beauty.</p>
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552" alt="Makeup">
+            </div>
+            <div class="service-card">
+                <h3>Skincare</h3>
+                <p>Relaxing skincare treatments to refresh your skin.</p>
+                <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6" alt="Skincare">
+            </div>
+            <div class="service-card">
+                <h3>Bridal Services</h3>
+                <p>Exclusive bridal packages for your special day.</p>
+                <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df" alt="Bridal">
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Artistry in Every Detail</span>
+                <h2>Why Our Studio?</h2>
+            </div>
+            <div class="artistic-grid">
+                <div class="art-card">
+                    <div class="card-inner">
+                        <div class="icon-circle">01</div>
+                        <h3>Curated Excellence</h3>
+                        <p>Every treatment is a bespoke masterpiece tailored to your unique features.</p>
+                    </div>
+                </div>
+                <div class="art-card">
+                    <div class="card-inner">
+                        <div class="icon-circle">02</div>
+                        <h3>The Rose Ritual</h3>
+                        <p>Experience our signature calm with rose-infused therapy and premium care.</p>
+                    </div>
+                </div>
+                <div class="art-card">
+                    <div class="card-inner">
+                        <div class="icon-circle">03</div>
+                        <h3>Master Artistry</h3>
+                        <p>Hand-picked professionals who treat beauty as a form of high-art.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2 class="footer-logo">The Rose Studio</h2>
+                <p>Elevating beauty through master artistry and premium care. Join our journey toward wellness and elegance.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#why-us">Why Us</a></li>
+                    <li><a href="#home">Our Story</a></li>
+                    <li><a href="#" class="btn-book">Book Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>123 Luxury Lane, Rose City</p>
+                <p>+1 (555) 789-ROSE</p>
+                <p>hello@therosestudio.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Rose Studio. Designed for Excellence.</p>
+        </div>
+    </footer>
+
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-content">
+            <img src="https://img.icons8.com/color/96/rose.png" class="rose-decoration" alt="rose">
+            <span class="close-btn">&times;</span>
+            <h2 class="script-glow" style="color: #41050f; font-size: 3rem; margin-top: 20px;">Contact Us</h2>
+            <div class="contact-details">
+                <p><strong>Phone:</strong> +1 234 567 890</p>
+                <p><strong>Email:</strong> hello@glowbeauty.com</p>
+                <p><strong>Location:</strong> 123 Beauty Lane, Glow City</p>
+            </div>
+            <a href="#" class="btn-book" style="background: #41050f; color: white; border: none;">Message Us</a>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("contactModal");
+        // Update to target ALL Book Now buttons
+        const btns = document.querySelectorAll(".btn-book"); 
+        const closeBtn = document.querySelector(".close-btn");
+
+        btns.forEach(btn => {
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = "flex";
+            }
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
