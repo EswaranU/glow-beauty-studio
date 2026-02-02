@@ -593,4 +593,69 @@ nav {
         margin: 20px auto;
         width: 80%;
     }
+
+}
+/* --- THE ULTIMATE MOBILE FIX --- */
+@media (max-width: 600px) {
+    /* 1. Fix the Header (Logo area) */
+    header {
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 1.8rem; /* Shrinks the giant title so it doesn't eat the screen */
+    }
+
+    /* 2. Fix the Navbar (Make links easy to tap) */
+    nav {
+        padding: 10px 5px;
+        gap: 10px;
+        flex-wrap: wrap; /* Allows links to move to a second line if they are too wide */
+    }
+    nav a {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    /* 3. Fix the Hero Section (The face image area) */
+    .hero {
+        height: 60vh; /* Keeps the face visible without making it too long */
+    }
+    .hero-content {
+        padding: 10px;
+        width: 100%;
+    }
+    .script-glow {
+        font-size: 2.5rem !important; /* Forces the 'Glow' text to stay small */
+        margin-bottom: 0;
+    }
+    .bold-title {
+        font-size: 1.4rem !important; /* Prevents 'BEAUTY STUDIO' from breaking into 2 lines */
+        letter-spacing: 2px;
+    }
+    .hero-tagline {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
+
+    /* 4. Fix Services (Stacking them vertically) */
+    .services-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    .service-card {
+        width: 100%;
+    }
+    .service-card img {
+        height: 180px; /* Prevents images from being giant on small screens */
+    }
+
+    /* 5. Fix the Footer */
+    .footer-container {
+        text-align: center;
+    }
+    .footer-brand, .footer-links, .footer-contact {
+        margin-bottom: 20px;
+    }
 }
